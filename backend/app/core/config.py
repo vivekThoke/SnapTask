@@ -16,9 +16,9 @@ class Settings(BaseSettings):
         env_file=".env",
         case_sensitive=False
     )
-    
+
     @property
-    def database_url(self):
+    def database_url(self): 
         return (
             f"postgresql://"
             f"{self.database_user}:"
