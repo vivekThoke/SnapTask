@@ -1,14 +1,18 @@
+import logging
+
 from fastapi import APIRouter
 from app.core.config import settings
 
 from app.utils.db_check import check_database
 
+logger = logging.getLogger(__name__)
+
 router = APIRouter()
 
 @router.get("/health", tags=["Health"])
 def health():
-    print("Backend end point got hit")
     databse = "connected"
+    logger.info("Health endpoint was called")
     
     try: 
         check_database()            
